@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router";
+import { LuLogIn } from "react-icons/lu";
 
 const Navbar = () => {
   const Links = (
@@ -47,8 +48,9 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{Links}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end gap-5">
         <NavLink className="btn" to="/register">Register</NavLink>
+        <NavLink className="btn" to="/singIn"> <LuLogIn /> SignIn</NavLink>
       </div>
     </div>
   );

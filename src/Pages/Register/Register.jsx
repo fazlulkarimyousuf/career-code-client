@@ -1,13 +1,27 @@
 import Lottie from "lottie-react";
 import registerLottie from "../../assets/lotties/register.json";
+import { use } from "react";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
 
 const Register = () => {
+  //
+  const { createUser } = use(AuthContext);
+  // handelRegister
   const handelRegister = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    // create user
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="hero bg-base-200 min-h-screen">
@@ -52,3 +66,4 @@ const Register = () => {
 };
 
 export default Register;
+// createUser
